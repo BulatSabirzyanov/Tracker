@@ -7,18 +7,20 @@ import com.example.tracker.data.remote.service.PandaScoreApiService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import javax.inject.Inject
 
-class GameRepositoryImpl(get: Any) : GameRepository, KoinComponent {
 
-    private val remoteSource: PandaScoreApiService by inject()
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+class GameRepositoryImpl @Inject constructor(
+    private val remoteSource: PandaScoreApiService,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+) :
+    GameRepository {
 
     override suspend fun getGameTournaments(game: String): List<GameTournamentsResponse> {
         return withContext(ioDispatcher) {
             remoteSource.getGameTournaments(game)
         }
+
     }
 
     override suspend fun getPlayerData(game: String): List<PlayersResponse> {
@@ -26,4 +28,6 @@ class GameRepositoryImpl(get: Any) : GameRepository, KoinComponent {
             remoteSource.getPlayerData(game)
         }
     }
+
+
 }
