@@ -1,16 +1,16 @@
-package com.example.tracker.presentation
+package com.example.tracker.presentation.schedulescreen
 
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cytrack.data.remote.response.Match
 import com.example.tracker.domain.GameRepository
+import com.example.tracker.presentation.GameModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+
 
 @Immutable
 data class MainViewState(
@@ -25,8 +25,8 @@ sealed interface MainAction {
     object Navigate : MainAction
 }
 
-class MainViewModel(get: Any) : ViewModel(), KoinComponent {
-    private val gameRepository: GameRepository by inject()
+class ScheduleScreenViewModel(private val gameRepository: GameRepository) : ViewModel() {
+
 
     private val _state = MutableStateFlow(MainViewState())
     val state: StateFlow<MainViewState> = _state
