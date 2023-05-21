@@ -1,5 +1,4 @@
 [versions]
-androidx-appcompat = "1.6.1"
 coil-compose = "2.3.0"
 com-android-application = "8.1.0-alpha10"
 core-ktx = "1.10.1"
@@ -7,11 +6,9 @@ google-material = "1.9.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-koin-androidx-compose = "3.1.2"
 lifecycle-runtime-ktx = "2.6.1"
 activity-compose = "1.7.1"
 compose-bom = "2023.05.01"
-navigation-compose = "2.6.0-rc01"
 org-jetbrains-kotlin-android = "1.8.20"
 appcompat = "1.6.1"
 material = "1.8.0"
@@ -39,20 +36,16 @@ viewpager2 = "1.0.0"
 
 
 [libraries]
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version = "2.6.1" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.6.1"}
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-viewbinding = { module = "androidx.databinding:viewbinding", version.ref = "viewbinding" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-insert-koin-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-androidx-compose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-androidx-compose" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }

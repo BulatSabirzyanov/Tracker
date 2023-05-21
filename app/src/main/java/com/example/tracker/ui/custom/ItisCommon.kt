@@ -1,4 +1,4 @@
-package com.example.composeapplication.ui.custom
+package com.example.tracker.ui.custom
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf

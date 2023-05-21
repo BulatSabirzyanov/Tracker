@@ -1,4 +1,4 @@
-package com.example.composeapplication.ui.custom
+package com.example.tracker.ui.custom
 
 import androidx.compose.ui.graphics.Color
 

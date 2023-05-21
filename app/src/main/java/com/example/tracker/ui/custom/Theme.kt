@@ -1,4 +1,4 @@
-package com.example.composeapplication.ui.custom
+package com.example.tracker.ui.custom
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

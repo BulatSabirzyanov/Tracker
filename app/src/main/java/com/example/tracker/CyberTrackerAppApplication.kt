@@ -1,6 +1,7 @@
 package com.example.tracker
 
 import android.app.Application
+import android.content.Context
 import com.example.tracker.di.DaggerAppComponent
 import com.example.tracker.di.AppComponent
 
@@ -9,13 +10,16 @@ import com.example.tracker.di.AppComponent
 class CyberTrackerAppApplication
     : Application() {
 
-    val appComponent: AppComponent = createAppComponent()
+    lateinit var appComponent: AppComponent
 
-    private fun createAppComponent(): AppComponent {
-        return DaggerAppComponent.builder()
+    override fun onCreate() {
+        super.onCreate()
+        appComponent = DaggerAppComponent.builder()
             .application(this)
             .build()
     }
+
+
 }
 
-
+fun Context.appComponent() = (this.applicationContext as CyberTrackerAppApplication).appComponent
