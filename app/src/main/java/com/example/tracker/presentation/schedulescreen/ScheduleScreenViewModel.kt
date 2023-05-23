@@ -14,11 +14,12 @@ import kotlinx.coroutines.launch
 
 @Immutable
 data class MainViewState(
-    val matches: List<GameModel> = listOf()
+    val matches: List<GameModel> = listOf(),
+    val selectedMatch: GameModel? = null
 )
 
 sealed interface MainEvent {
-    data class OnMatchClick(val match: Match) : MainEvent
+    data class OnMatchClick(val matchId: Long) : MainEvent
 }
 
 sealed interface MainAction {
@@ -26,7 +27,10 @@ sealed interface MainAction {
 }
 
 class ScheduleScreenViewModel(private val gameRepository: GameRepository) : ViewModel() {
-
+    fun getMatchDetail(id: Long) {
+        val match = _state.value.matches.find { it.id == id }
+        _state.value = _state.value.copy(selectedMatch = match)
+    }
 
     private val _state = MutableStateFlow(MainViewState())
     val state: StateFlow<MainViewState> = _state
@@ -38,8 +42,9 @@ class ScheduleScreenViewModel(private val gameRepository: GameRepository) : View
 
     fun event(mainEvent: MainEvent) {
         when (mainEvent) {
-            is MainEvent.OnMatchClick -> TODO()
+            is MainEvent.OnMatchClick -> {
 
+            }
         }
     }
 
@@ -61,12 +66,13 @@ class ScheduleScreenViewModel(private val gameRepository: GameRepository) : View
 
                         if (team1 != null && team2 != null) {
                             GameModel(
-                                id = match.tournamentId.toLong(),
+                                id = match.id.toLong(),
                                 date = match.beginAt,
                                 team1 = team1.name,
                                 team2 = team2.name,
                                 team1Icon = team1.imageUrl,
                                 team2Icon = team2.imageUrl,
+
                             )
                         } else {
                             null
