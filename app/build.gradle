@@ -93,4 +93,10 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.37"
     kapt "com.google.dagger:hilt-android-compiler:2.37"
 
+    testImplementation libs.junit
+    testImplementation libs.mockito.core
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.retrofit.mock
+
+
 }
